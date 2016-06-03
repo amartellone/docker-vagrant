@@ -10,7 +10,7 @@ After setup is complete you will have a single Ubuntu virtual machine running on
 
 1) Install dependencies
 
-* [VirtualBox][virtualbox] 5.0.1 or greater.
+* [VirtualBox][virtualbox] 5.0.20 or greater.
 * [Vagrant][vagrant] 1.8 or greater.
 
 2) Clone this project and get it running!
