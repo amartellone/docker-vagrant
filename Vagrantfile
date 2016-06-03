@@ -6,14 +6,13 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  $forwarded_ports = { 8080 => 8080, 8081 => 8081, 8082 => 8082}
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "minimum/ubuntu-trusty64-docker"
+  config.vm.box = "williamyeh/ubuntu-trusty64-docker"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -24,13 +23,11 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  $forwarded_ports.each do |guest, host|
-    config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
-  end
+
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", ip: "172.17.10.10"
+  config.vm.network "private_network", ip: "192.168.33.10"
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -46,9 +43,9 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-   config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-     vb.gui = false
+  #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
      vb.memory = "1024"
