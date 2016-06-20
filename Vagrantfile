@@ -49,6 +49,10 @@ Vagrant.configure(2) do |config|
   #
   #   # Customize the amount of memory on the VM:
      vb.memory = "1024"
+     vb.customize ['modifyvm', :id, '--nictype1', 'Am79C973']
+     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+     vb.customize ['modifyvm', :id, '--nictype2', 'Am79C973']
+     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
    end
   #
   # View the documentation for the provider you are using for more
